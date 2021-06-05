@@ -33,6 +33,7 @@ public class PersonaServiceImpl implements PersonaService{
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
 		} else {
 			persona = personaEntity;
+			personaRepository.save(persona);
 			response.put("mensaje", "se a actualizado correctamente la persona con id: " + idPersona);
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 		}
@@ -42,7 +43,7 @@ public class PersonaServiceImpl implements PersonaService{
 
 	@Override
 	public void elimiar(Long idPersona) {
-		// TODO Auto-generated method stub
+		personaRepository.deleteById(idPersona);
 		
 	}
 

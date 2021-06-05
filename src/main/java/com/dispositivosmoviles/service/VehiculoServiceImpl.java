@@ -1,5 +1,7 @@
 package com.dispositivosmoviles.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +21,13 @@ public class VehiculoServiceImpl implements VehiculoService{
 
 	@Override
 	public void Elimiar(String placa) {
-		// TODO Auto-generated method stub
+		vehiculoRepository.deleteById(placa);
 		
+	}
+
+	@Override
+	public List<VehiculoEntity> listar() {
+		return vehiculoRepository.findAll();
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.dispositivosmoviles.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,5 +22,10 @@ public class VehiculoController {
 	@PostMapping("/vehiculo")
 	public void crear(@RequestBody VehiculoEntity vehiculoEntity) {
 		vehiculoService.crear(vehiculoEntity);
+	}
+	
+	@GetMapping("/vehiculo")
+	public List<VehiculoEntity> listar(){
+		return vehiculoService.listar();
 	}
 }
